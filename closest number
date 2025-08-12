@@ -1,0 +1,12 @@
+class Solution:
+    def closestNumber(self, n, m):
+        q=n//m
+        low=q*m
+        high=(q+1)*m
+        if abs(low-n)<abs(high-n):
+            return low
+        elif abs(low-n)>abs(high-n):
+            return high
+        else:
+            return max(low, high, key=abs)
+        
