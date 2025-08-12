@@ -1,0 +1,8 @@
+#User function Template for python3
+class Solution:
+    def isPowerOfAnother (ob,X,Y):
+        # code here 
+        for i in range(0, Y):
+            if Y==X**i:
+                return True
+        return False
