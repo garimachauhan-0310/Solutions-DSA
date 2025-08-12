@@ -1,0 +1,9 @@
+#User function Template for python3
+
+class Solution:
+	def reverseDigits(self, n):
+		# Code here
+		n = str(n)
+		n = n[ : :-1]
+		n = int(n)
+		return n
