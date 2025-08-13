@@ -1,0 +1,11 @@
+#Your task is to complete this function
+#Your shouldn't return any thing it should print the required output
+import math
+def addFraction(num1, den1, num2, den2):
+    #Code here
+    num = num1*den2 + num2*den1
+    den = den1*den2
+    gcd_value = math.gcd(num,den)
+    num //= gcd_value
+    den //= gcd_value
+    print(f"{num}/{den}")
