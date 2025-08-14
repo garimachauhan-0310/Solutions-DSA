@@ -1,0 +1,8 @@
+class Solution {
+    public bool isPalindrome(int n) {
+        // code here.
+        string str = n.ToString();
+        string reversed = new string(str.Reverse().ToArray());
+        return str == reversed;
+    }
+}
