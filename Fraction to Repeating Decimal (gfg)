@@ -1,0 +1,28 @@
+#User function Template for python3
+class Solution:
+
+    def calculateFraction(self, a, b):
+        # Code Here
+        if a==0:
+            return 0
+        res = '-' if (a<0)^(b<0) else ""
+        a = abs(a)
+        b = abs(b)
+        res += str(a//b)
+        rem = a%b
+        if rem==0:
+            return res
+        res+='.'
+        mp={}
+        while rem>0:
+            #if cycle repetition is caught
+            if rem in mp:
+                res = res[:mp[rem]]+'('+res[mp[rem]:]+')'
+                break
+            #if remainder is seen for the first time
+            mp[rem]=len(res)
+            rem=rem*10
+            #appending quotient to result and calculating the next remainder
+            res+=str(rem//b)
+            rem=rem%b
+        return res
