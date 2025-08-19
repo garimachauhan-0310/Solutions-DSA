@@ -1,0 +1,17 @@
+import math
+class Solution:
+    def primeFac(self, n):
+        # code here
+        l=[]
+        if n%2==0:
+            l.append(2)
+            while n%2==0:
+                n=n//2
+        for i in range (3, int(math.sqrt(n))+1, 2):
+            if n%i==0:
+                l.append(i)
+                while n%i==0:
+                    n=n//i
+        if n>2:
+            l.append(n)
+        return l
