@@ -38,7 +38,7 @@ This repo helps me:
 2. Navigate into the folder:
 
    ```bash
-   cd DSA-Solutions
+   cd DSA---Journey
    ```
 3. Compile and run any file using g++:
 
