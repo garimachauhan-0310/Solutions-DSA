@@ -1,0 +1,60 @@
+// Brute force approach [O(n^2)]
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> answer;
+        for (int i =0; i<n; i++){
+            int product = 1;
+            for (int j=0; j<n; j++){
+                if (j==i){
+                    continue;
+                }
+                else{
+                    product*=nums[j];
+                }
+            }
+            answer.push_back(product);
+        }
+        return answer;
+    }
+};
+
+// optimal approach [O(n)]
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> prefix(n, 1);
+        vector<int> sufix(n, 1);
+        vector<int> answer(n, 1);
+        for (int i=1; i<n; i++){
+            prefix[i]=prefix[i-1]*nums[i-1];
+        }
+        for (int i=n-2; i>=0; i--){
+            sufix[i]=sufix[i+1]*nums[i+1];
+        }
+        for (int i=0; i<n; i++){
+            answer[i]=prefix[i]*sufix[i];
+        }
+        return answer;
+    }
+};
+
+// improving space complexity from O(n) to O(1)
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> answer(n, 1);
+        for (int i=1; i<n; i++){
+            answer[i]=answer[i-1]*nums[i-1];
+        }
+        int sufix=1;
+        for (int i=n-2; i>=0; i--){
+            sufix*=nums[i+1];
+            answer[i]*=sufix;
+        }
+        return answer;
+    }
+};
